@@ -9,7 +9,7 @@ class IncomingController < ApplicationController
     @url = params["body-plain"]
     
     if @user.nil?
-      @user = User.new(email: params[:sender], password: "password")
+      @user = User.new(email: params[:sender], password: "temp0rary_passw0rd")
       @user.skip_confirmation!
       @user.save!
     end
@@ -19,7 +19,6 @@ class IncomingController < ApplicationController
     end
       
     @bookmark = @topic.bookmarks.create(url: @url)
-    
     head 200
   end
 end

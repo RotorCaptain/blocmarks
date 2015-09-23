@@ -9,12 +9,10 @@ ActionMailer::Base.smtp_settings = {
 }
 ActionMailer::Base.delivery_method = :smtp
 
-# Makes debugging *way easier.
+
 ActionMailer::Base.raise_delivery_errors = true
 
-# This interceptor just makes sure that local mailgun
-# only emails you.
-# http://edgeguides.rubyonrails.org/action_mailer_basics.html#intercepting-emails
+
 class DevelopmentMailInterceptor
   def self.delivering_email(message)
     message.to = 'rotorcaptain@hotmail.com'
@@ -23,8 +21,7 @@ class DevelopmentMailInterceptor
   end
 end
 
-# Locally, outgoing mail will be 'intercepted' by the
-# above DevelopmentMailInterceptor before going out 
+
 if Rails.env.development?
   ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
 end

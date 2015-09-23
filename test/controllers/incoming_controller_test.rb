@@ -2,7 +2,7 @@ require 'test_helper'
 
 class IncomingControllerTest < ActionController::TestCase
   test "should get create" do
-    get :create
+    post :create
     assert_response :success
   end
 
