@@ -2,10 +2,10 @@ class LikesController < ApplicationController
   
   def create
      @bookmark = Bookmark.find(params[:bookmark_id])
-     like = current_user.likes.build(bookmark: @bookmark)
+     @like = current_user.likes.build(bookmark: @bookmark)
      authorize @like
  
-     if like.save
+     if @like.save
         flash[:notice] = "Your like was saved"
         redirect_to [@bookmark.topic]
      else
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
       @like = current_user.likes.find(params[:id])
       authorize @like
  
-     if like.destroy
+     if @like.destroy
         flash[:notice] = "Like was deleted."
         redirect_to [@bookmark.topic]
      else

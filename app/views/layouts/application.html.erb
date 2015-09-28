@@ -13,11 +13,13 @@
       <li><%= link_to "Blocmarks", root_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Topics", topics_path %></li>
-      <li><%= link_to "Your Bookmarks", users_show_path %></li>
+      <% if current_user %>
+      <li><%= link_to "Your Bookmarks", user_path(current_user) %></li>
+      <% end %>
 
       <div class="pull-right user-info">
         <% if current_user %>
-          Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          Hi <%= link_to (current_user.name || current_user.email), current_user %>!
           <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
             <span class="glyphicon glyphicon-user"></span>
             <% end %>
