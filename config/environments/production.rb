@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #http://blocmarks.herokuapp.com
-  config.action_mailer.default_url_options = { host: 'xxxxx-blocmarks.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'https://fathomless-depths-7237.herokuapp.com/'}
 end

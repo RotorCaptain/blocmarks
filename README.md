@@ -13,3 +13,5 @@ Welcome to your Rails project on Cloud9 IDE!
 
 
  https://git.heroku.com/fathomless-depths-7237.git
+ 
+  https://fathomless-depths-7237.herokuapp.com
